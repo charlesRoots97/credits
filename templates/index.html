@@ -1,0 +1,20 @@
+{% extends 'layout_one.html' %}
+{% block body %}
+<div class="row col-md-12">
+    <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
+        <div class="mx-auto">
+            <h1 style="font-weight: 700; color: #0F4BBD">Mejorando el futuro de los Mexicanos.</h1>
+        </div>
+        <div class="mr-auto">
+            <a href="/producto1" class="my_link" style="font-size: 20px;">Conoce todos nuestros productos.</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="{{ url_for('static',filename='images/Fotografia-Home.png') }}" alt="" class="col-md-12" />
+    </div>
+    <div class="col-md-12">
+        <a href="/simulator" class="btn btn-outline-primary mr-3 my_btn_primary">Calcula tu crédito</a>
+        <button type="button" class="btn btn-outline-primary my_btn_primary">Sucursal virtual</button>
+    </div>
+</div>
+{% endblock %}

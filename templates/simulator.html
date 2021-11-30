@@ -1,0 +1,287 @@
+{% extends 'layout_one.html' %}
+{% block body %}
+
+<div class="col-md-12 mt-5">
+    <div class="card col-md-4 btn_radius10 card_shadow" >
+        <div class="row card-body d-flex justify-content-center">
+            <div class="col-md-12" id="contenedor">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h5 class="card-title title_style_card_two">¡Bienvenido!</h5>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h6 class="text_body subtitle_style_card">¿Qué <strong>crédito</strong> quieres?</h6>
+                </div>
+                <div class="col-md-12 mt-2 d-flex justify-content-center">
+                    <select class="custom-select col-md-9" style="border-radius: 20px;" id="credit_type">
+                        <option selected value="0">Elegir</option>
+                        <option value="individual">Individual</option>
+                        <option value="grupal">Grupal</option>
+                        <option value="construcredi">Construcredi</option>
+                        <option value="nomina">Nómina</option>
+                        <option value="hipotecario">Hipotecario</option>
+                        <option value="pyme">PyME</option>
+                    </select>
+                </div>
+                <input type="hidden" id="max">
+                <input type="hidden" id="min">
+                <input type="hidden" id="increment">
+                <input type="hidden" id="actualValue">
+                <div class="col-md-12 mt-2 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-primary mr-3 my-auto my_btn_simulator increment" data-type="substract"><i class="fas fa-minus"></i></button>
+                    <h5 class="card-title my-auto title_style_card_two" id="quantity_credit">$0</h5>
+                    <button type="button" class="btn btn-outline-primary mr-3  my-auto my_btn_simulator increment" data-type="plus"><i class="fas fa-plus"></i></button>
+                </div>
+                <input type="range" class="form-control-range bg_mine progress_mine" id="quantity_credit2" min="0" max="0" step="0" value="0">
+
+                <div class="col-md-12 mt-3 d-flex justify-content-center">
+                    <h6 class="text_body subtitle_style_card_two">Pago quincenal aproximado</h6>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center" >
+                    <h6 class="text_simulator_price subtitle_style_card_two" >$560.50</h6>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn my_btn_simulator_ok" data-type="solicitar">¡Solicítalo ahora!</button>
+                </div>
+            </div>
+            <div class="col-md-12 d-none" id="contenedor2">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h5 class="card-title title_style_card_two">Queremos conocerte</h5>
+                </div>
+                <div class="mb-3">
+                    <label for="names" class="form-label">Nombre(s)</label>
+                    <input type="text" class="form-control my_input" id="names" />
+                </div>
+                <div class="mb-3">
+                    <label for="lastnames" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control my_input" id="lastnames" />
+                </div>
+                <div class="mb-3">
+                    <label for="cellphone" class="form-label">Celular</label>
+                    <input type="text" class="form-control my_input" id="cellphone" />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control my_input" id="email" />
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn my_btn_simulator_ok" data-type="next">Siguiente</button>
+                </div>
+            </div>
+            <div class="col-md-12 d-none" id="contenedor3">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h5 class="card-title title_style_card_two">¡Ya casi!</h5>
+                </div>
+                <div class="mb-3">
+                    <label for="postal_code" class="form-label">Código Postal</label>
+                    <input type="text" class="form-control my_input" id="postal_code" />
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" class="form-control my_input" id="country" />
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">Estado</label>
+                    <input type="text" class="form-control my_input" id="state" />
+                </div>
+                <div class="mb-3">
+                    <label for="municipal" class="form-label">Municipio</label>
+                    <input type="text" class="form-control my_input" id="municipal" />
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control my_input" id="city" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Localidad</label>
+                    <select class="form-control my_input" id="town">
+                      <option>Elegir...</option>
+                    </select>
+                  </div>
+                
+                <div class="col-md-12 d-flex justify-content-center">
+                    <button type="button" class="btn my_btn_simulator_ok" data-type='send'>Enviar</button>
+                </div>
+            </div>
+            <div class="col-md-12 d-none my-5" id="contenedor4">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h5 class="card-title title_style_card_two">¡Listo!</h5>
+                </div>
+                <div class="col-md-12 mt-3 d-flex justify-content-center">
+                    <p class="text_body subtitle_style_card_two">
+                        Gracias por tu interés, un asesor se comunicará para brindarte toda la información que necesites.
+                    </p>
+                </div>
+                
+                <div class="col-md-12 mt-5 d-flex justify-content-center">
+                    <button type="button" class="btn my_btn_simulator_ok" data-type='again'>Calcular de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var x;
+    $('.my_btn_simulator_ok').click(function(){
+        let type = $(this).attr('data-type');
+        console.log(type)
+
+        if(type == 'solicitar'){
+            document.getElementById("contenedor").classList.add("d-none");
+            document.getElementById("contenedor2").classList.remove("d-none");
+        }else if(type == 'next'){
+            document.getElementById("contenedor2").classList.add("d-none");
+            document.getElementById("contenedor3").classList.remove("d-none");
+        }else if(type == 'send'){
+            document.getElementById("contenedor3").classList.add("d-none");
+            document.getElementById("contenedor4").classList.remove("d-none");
+        }else if(type == 'again'){
+            document.getElementById("contenedor4").classList.add("d-none");
+            document.getElementById("contenedor").classList.remove("d-none");
+        }
+    });
+
+    $('#postal_code').keyup(function(){
+        let cp = $(this).val();
+        let response, asentamiento, ciudad, estado, municipio, pais, tipo_asentamiento;
+        let options = '<option selected value="0">Elegir...</option>';
+        if(cp.length == 5){
+            $.ajax({
+                url: 'https://api.copomex.com/query/info_cp/29000?type=simplified&token=pruebas',
+                success: function(res){
+                    x = res;
+                    console.log(res);
+                    response = res.response;
+                    asentamiento = response.asentamiento;
+                    estado = response.estado;
+                    municipio = response.municipio;
+                    ciudad = response.ciudad;
+                    pais = response.pais;
+                    tipo_asentamiento = response.tipo_asentamiento;
+
+                    $('#country').val(pais);
+                    $('#state').val(estado);
+                    $('#municipal').val(municipio);
+                    $('#city').val(ciudad);
+
+                    asentamiento.forEach(function(e){
+                        options+='<option value="'+e+'">'+e+'</option>'
+                    })
+
+                    $('#town').html(options);
+
+                    // console.log(ciudad);
+                }
+            })
+        }
+    })
+
+    $('#credit_type').change(function(){
+        let val = $(this).val();
+        
+        switch(val) {
+            case 'individual':
+                $('#quantity_credit').html('$5,000');
+                calculateValues(200000,5000,1000)
+                break;
+            case 'grupal':
+                $('#quantity_credit').html('$3,000');
+                calculateValues(80000,3000,1000)
+                break;
+            case 'construcredi':
+                $('#quantity_credit').html('$1,000');
+                calculateValues(70000,1000,1000)
+                break;
+            case 'nomina':
+                $('#quantity_credit').html('$3,000');
+                calculateValues(80000,3000,1000)
+                break;
+            case 'hipotecario':
+                $('#quantity_credit').html('$70,000');
+                calculateValues(400000,70000,10000)
+                break;
+            case 'pyme':
+                $('#quantity_credit').html('$201,000');
+                calculateValues(15000000,201000,100000)
+                break;
+            default:
+                console.log('No selecconó ni vergas...')
+        }
+    });
+
+    $('.increment').click(function(){
+        let type = $(this).data('type');
+        let actualValue = $('#actualValue').val();
+        let increment = $('#increment').val();
+        let min = $('#min').val();
+        let max = $('#max').val();
+
+        actualValue = parseFloat(actualValue);
+        increment = parseFloat(increment);
+        min = parseFloat(min);
+        max = parseFloat(max);
+
+        if(type == 'substract'){
+            if(actualValue <= min){
+                actualValue = actualValue-0;
+                $('#actualValue').val(actualValue);
+                $('#quantity_credit2').val(actualValue);
+            }else{
+                actualValue = actualValue-increment;
+                $('#actualValue').val(actualValue);
+                $('#quantity_credit2').val(actualValue);
+            }
+        }else if(type == 'plus'){
+            console.log(max)
+            console.log(actualValue)
+            if(actualValue >= max){
+                actualValue = max;
+                $('#actualValue').val(max);
+                $('#quantity_credit2').val(max);
+            }else{
+                actualValue = actualValue+increment;
+                if(actualValue >= max){
+                    actualValue = max;
+                    $('#actualValue').val(max);
+                    $('#quantity_credit2').val(max);
+                }else{
+                    $('#actualValue').val(actualValue);
+                    $('#quantity_credit2').val(actualValue);
+                }
+            }
+        }
+        $('#quantity_credit').html("$"+parseFloat(actualValue).toFixed(2));
+    });
+
+    function calculateValues(max,min,increment){
+        min = parseFloat(min);
+        max = parseFloat(max);
+        increment = parseFloat(increment);
+        let percentageIncrement = (increment/(max-min))*100;
+        let inicialValue = 0;
+        console.log(percentageIncrement);
+        $('#min').val(min);
+        $('#max').val(max);
+        $('#increment').val(increment);
+        $('#actualValue').val(min);
+        $('#quantity_credit2').attr('min',min);
+        $('#quantity_credit2').attr('max',max);
+        $('#quantity_credit2').attr('step',increment);
+        $('#quantity_credit2').val(min);
+
+        // inicialValue = percentageIncrement*50;
+        // console.log(inicialValue)
+    }
+
+    $("#quantity_credit2").change(function(){
+        let value = $(this).val();
+        let increment = $('#increment').val();
+        let producto = parseFloat(value)/parseFloat(increment);
+        let percentageIncrement = $('#percentageIncrement').val();
+        let new_percentage = parseFloat(producto)*parseFloat(percentageIncrement);
+        $('#quantity_credit').html("$"+parseFloat(value).toFixed(2));
+        $('#actualValue').val(value);
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 1px 1px 8px #5b5b5f">
+        <a href="/" class="navbar-brand text-white font-weight-bold"><img src="{{ url_for('static',filename='images/Logotipo-ADS-04.png') }}" style="width: 100px" /></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" />
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle items_navigation" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                Productos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="/producto/1" class="dropdown-item">Créditos</a>
+                    <a class="dropdown-item" href="#">Seguros</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="/services" class="nav-link items_navigation">Sucursales</a>
+            </li>
+            <li class="nav-item">
+                <a href="/services" class="nav-link items_navigation">Información Digital</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <div class="container px-0">
+        {% block body %}
+        {% endblock %}
+        <div class="btn_whatsapp">
+            <a href="https://api.whatsapp.com/send?phone=5219614630019&text=%23alternativa19" target="_blank">
+            <img src="{{ url_for('static',filename='images/Astro-01.png') }}" alt="" class="style_img_float" />
+            </a>
+        </div>
+    </div>
+    <div class="container row col-md-12 mt-4 px-5 pt-5 footer_style">
+        <div class="col-md-4">
+            <div class="col-md-12">
+                <h5 class="title_style_card">Información</h5>
+            </div>
+            <div class="col-md-8">
+                <p>11 Nte. Pte. 1147 Los Altos, Fraccionamiento Vista Hermosa, <br/>C.P. 29030.</p>
+            </div>
+            
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12">
+                <h5 class="title_style_card">Links</h5>
+            </div>
+            <div>
+                <ul>
+                    <li>Productos</li>
+                    <li>Sucursales</li>
+                    <li>Sucursal Virtual</li>
+                    <li>Información digital</li>
+                    <li>AlterPlus</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h5 class="title_style_card">Otros servicios</h5>
+            </div>
+            <div>
+                <ul>
+                    <li>Contacto</li>
+                    <li>Simulador</li>
+                    <li>Puntos de ago</li>
+                    <li>Vacantes</li>
+                    <li>Información legal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

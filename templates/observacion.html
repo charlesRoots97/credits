@@ -1,0 +1,53 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<section class="seccion contenedor precios bg_animat">
+    <h2 class="separador">Observaciones</h2>
+    <!-- <section class="precios seccion"> -->
+    <div class="contenido-objetivos">
+        <div class="imagen-objetivo img-obj3">
+			<img src="{{url_for ('static', filename = 'img/Observaciones.gif')}}" alt="Imagen Sobre Nosotros" class="img-obje">
+		</div>
+      <div class="text-requisitos"> 
+        <h3>Observaciones para adquirir un Seguro.</h3>
+        <ol>
+          <li class="list-observacion">No aplica para personas morales.</li>
+          <li class="list-observacion">No cubre suicidios.</li>
+          <!-- <li class="list-observacion">Comprobante domicilio no mayor a 2 meses.</li> -->
+          <li class="list-observacion">Contamos con 10 días naturales (máximo) para reportar<br> el fallecimiento del asegurado, posteriormente hasta 20 días para enviar los documentos para continuar con el proceso de indemnización (de no enviarse, la reclamación quedara inhabilitada).</li>
+          <li class="list-observacion">El pago será cubierto al beneficiario en un lapso de<br> 20 o 30 días posteriores al envió de los documentos completos, considerando como inicio del proceso a la fecha de envió del último documento.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <ul class="lista-precios clearfix">
+
+
+      </ul>
+    </div>
+
+    <form id="registro_insignia" class="registro" action="registro.php" method="post">
+        <div id="paquetes" class="paquetes">
+            <!-- <h2>Objetivos Generale s</h2> -->
+            <ul class="lista-seguro-com clearfix" id="listContent"></ul>
+        </div>
+
+    </form>
+    <div class="burbujas">
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+    </div>
+</section>
+
+{% endblock%}
+

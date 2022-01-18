@@ -1,0 +1,354 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+    <section class="seccion contenedor">
+        <form id="formTitular">
+            <div id="registro_titu" class="eventos clearfix">
+                <div class="titulo">
+                    <fieldset>
+                        <h3 class="registro_titular">Registro de Titular</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text">
+
+                    <fieldset>
+                        <legend>Información Personal</legend>
+
+                            <input type="hidden" id="precio_seguro" name="precio_seguro" class="input-nombre" value="{{ seguro_id.0 }}">
+                            <input type="hidden" id="seguro_id" name="seguro_id" class="input-nombre" value="{{ id_seguro }}">
+                        <div class="form_titular__datos">
+                        <fieldset class="field-nombre">
+                            <legend class="nombre_titular"><i class="fas fa-user"></i>Nombre</legend>
+                            <label for="text"></label>
+                            <input type="text" id="nombre" name="nombre" class="input-nombre" placeholder="Escribe tu Nombre" required><!--onkeyup="pm.inputKeyUpDirect(this);"-->
+                        </fieldset>
+                        <fieldset class="field-apellidoP">
+                            <legend class="nombre_titular"><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_paterno" name="apellido_paterno" class="input-apellidoP" placeholder="Escribe tu Apellido Paterno" required>
+                        </fieldset>
+                        <fieldset class="field-apellidoM">
+                            <legend class="nombre_titular"><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_materno" name="apellido_materno" class="input-apellidoM" placeholder="Escribe tu Apellido Materno" required>
+                        </fieldset>
+                        <fieldset class="field-sexo">
+                            <legend class="nombre_titular"><i class="fas fa-venus-mars"></i>Sexo</legend>
+                            <select id="sexo" name="sexo" class="input-sexo">
+                                <option value="0" disabled selected>-- Seleccione --</option>
+                                {% for cotiza in cotiz %}
+                                    <tr>
+                                    <option value="{{ cotiza.0 }}">{{ cotiza.1 }}</option>
+                                    <td></td>
+                                    </tr>
+                                    {% endfor %}
+                            </select>  
+                        </fieldset>
+                        <fieldset class="field-email">
+                            <legend class="nombre_titular"><i class="fas fa-envelope-square"></i>Email</legend>
+                            <input type="email" id="email" name="email" class="input-email" placeholder="Tu Correo electrónico" required>
+                        </fieldset>
+
+                        <fieldset class="field-telefono">
+                            <legend class="nombre_titular"><i class="fas fa-mobile"></i>Telefono</legend>
+                            <input type="tel" id="telefono" name="telefono" class="input-tel" placeholder="Tu Teléfono" placeholder>
+                        </fieldset>
+
+                        <fieldset class="field-profesion">
+                            <legend class="nombre_titular"><i class="fas fa-user-tie"></i>Profesión / Oficio</legend>
+                            <select name="profesion" id="profesion" class="input-nombre">
+                                <option selected value="0">-- Seleccione --</option>
+                                    {% for profes in prof %}
+                                        <tr>
+                                        <option value="{{ profes.0 }}">{{ profes.1 }}</option>
+                                        <td></td>
+                                        </tr>
+                                    {% endfor %}
+                            </select>
+                        </fieldset>
+                        <fieldset class="field-fecha">
+                            <legend class="nombre_titular"><i class="fas fa-calendar-week"></i>Fecha de Nacimiento</legend> 
+                            <input type="text" class="input-fecha" id="fecha_nacimiento" value="1980-07-07" name="fecha_nacimiento" placeholder="YYYY-MM-DD">
+                        </fieldset>
+
+                        <fieldset class="field-curp">
+                            <legend class="nombre_titular"><i class="fas fa-id-card"></i>CURP</legend>
+                            <label for="text"></label>
+                            <input type="text" id="curp" name="curp" class="input-nombre curp" maxlength="18" placeholder="Escribe tu CURP" required>
+                        </fieldset>
+                    </div>
+				    </fieldset>
+				    
+                </div>
+ 
+                <input type="button" value="Continuar" class="boton-continuar" id="boton-continuar_eve" onclick="add_cotizacion()"> 
+                <div class="btn_form_enfermedades">
+                    <input type="button" value="Si padezco" class="boton-si" id="boton-si" onclick="btn_si()"> 
+                    <input type="button" value="No padezco" class="boton-no" id="boton-no" onclick="btn_no()"> 
+                </div>
+            </div>
+            <div class="terminos_input__condicion" id="terminos_input__condicion">
+                
+                <p class="text_protesta">
+                    Declaro bajo protesta decir la verdad. Que a la fecha no padezco ninguna enfermedad (es) crónica (s) ni de gravedad.
+                    <!-- <a class="color_ref" href="/terminos"></a> -->
+                </p>
+            </div>
+
+        <!-- formulario de enfermedades -->
+        </form>
+
+        <form id="enfermedades">
+            <div id="enfermedades_dos" class="eventos clearfix">
+                <!-- <div class="titulo">
+
+                </div> -->
+                <div class="caja1">
+                    <div class="evento registro_text">
+
+                    <fieldset>
+                        <legend>Información Medica</legend>
+                        <div class="close_form__enferme" id="close_form__enferme">
+                            <i class="fas fa-times"></i>
+
+                        </div>
+                        <div class="form_preg_uno">
+                            <label >INFARTO</label>
+                            <div class="pregunta_uno">
+                                <div class="chec_no">
+                                    <input type="checkbox" id="preg_infarto" class="btn_cancer_no" name="preg_infarto" value="No" />
+                                </div>
+                                <div class="text_no" id="text_no">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg"></div>
+                            <div class="pregunta_dos">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_infarto1" class="btn_cancer_si" name="preg_infarto1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg2"></div>
+                        </div>
+
+                        <div class="form_preg_dos">
+                            <label >INSUFICIENCIA RESPIRATORIA</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_insufi" class="btn_cancer_no" name="preg_insufi" value="No" />
+                                </div>
+                                <div class="text_no" id="text_no1">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+ 
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_insufi1" class="btn_cancer_si" name="preg_insufi1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si1">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_tres">
+                            <label >INSUFICIENCIA CARDIACA</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_cardia" class="btn_cardiaca_no" name="preg_cardia" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no2">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_cardia1" class="btn_cardiaca_si" name="preg_cardia1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si2">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_cuatro">
+                            <label >INSUFICIENCIA RENAL</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_renal" class="btn_renal_no" name="preg_renal" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no3">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_renal1" class="btn_renal_si" name="preg_renal1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si3">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_cinco">
+                            <label >SIDA</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_SIDA" class="btn_cancer_no" name="preg_SIDA" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no4">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_SIDA1" class="btn_cancer_no" name="preg_SIDA1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si4">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_seis">
+                            <label >CIRROSIS</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_cirro" class="btn_cancer_no" name="preg_cirro" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no5">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_cirro1" class="btn_cancer_no" name="preg_cirro1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si5">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_siete">
+                            <label >HIPERTENCION</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_hiper" class="btn_hiper_no" name="preg_hiper" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no6">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_hiper1" class="btn_hiper_no" name="preg_hiper1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si6">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_ocho">
+                            <label>DIABETES</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_diabetes" class="btn_diabe_no" name="preg_diabetes" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no7">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_diabetes1" class="btn_diabe_si" name="preg_diabetes1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si7">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_nueve">
+                            <label>DERRAME CEREBRAL</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_derrame" class="btn_cancer_no" name="preg_derrame" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no8">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_derrame1" class="btn_cancer_si" name="preg_derrame1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si8">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_dies">
+                            <label>CANCER</label>
+                            <div class="pregunta_tres">
+                                <div class="chec_no1">
+                                    <input type="checkbox" id="preg_cancer" class="btn_cancer_no" name="preg_cancer" value="No"/>
+                                </div>
+                                <div class="text_no" id="text_no9">
+                                    <label for="dia1">No</label>
+                                </div>
+                            </div>
+                            <div id="msg3"></div>
+                            <div class="pregunta_cuatro">
+                                <div class="chec_si">
+                                    <input type="checkbox" id="preg_cancer1" class="btn_cancer_si" name="preg_cancer1" value="Si"/>
+                                </div>
+                                <div class="text_si" id="text_si9">
+                                    <label for="dia2">Si</label>
+                                </div>
+                            </div>
+                            <div id="msg4"></div>
+                        </div>
+
+                        <div class="form_preg_once">
+                            <label>OTRO</label>
+                            <div class="pregunta_tres">
+                                <!-- <input type="text" id="nombre" name="nombre" class="input-nombre" placeholder="Escribe tu Nombre" required> -->
+                                <textarea name="" id="" class="text_otro" rows="5"></textarea>
+                            </div>
+                        </div>
+				    </fieldset>
+				    
+                </div>
+
+            </div>
+        </form>
+
+    </section>
+
+    {% endblock%}

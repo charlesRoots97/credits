@@ -1,0 +1,52 @@
+<!-- extends 'header.html' -->
+{% extends 'header_global.html' %}
+
+{% block body %}
+
+
+<section class="seccion contenedor precios">
+    <h2 class="separador">Elige el seguro que deseas cotizar</h2>
+    <!-- <section class="precios seccion"> -->
+
+
+    <div class="contenedor">
+      <ul class="lista-precios clearfix">
+
+{% for contact in contacts %}
+    <!-- <td>{{ contact.1 }}</td> -->
+        <li class="mov_seguro_compra">
+          <div class="tabla-precio">
+
+            <h3> {{ contact.1 }}</h3>
+            <div class="logo-insignia">
+              <img src="static/img/{{ contact.2 }}" alt="logo">
+              <input type="hidden" value="1" id="insignia-log" name="insignia-log">
+            </div>
+            <ul>
+              <li>El mejor seguro</li>
+              <li>Los mejores beneficios</li>
+              <button class="hollows buttons seguroCat" id="{{ contact.0 }}">Cotizar</button>
+            </ul>
+          </div>
+        </li> 
+{% endfor%}
+
+
+      </ul>
+    </div>
+
+    <form id="registro_insignia" class="registro" action="registro.php" method="post">
+      <div id="seguro_cat" class="paquetes">
+        <h2 class="separador">Elige el seguro a comprar</h2>
+        <div class="lista-seguro__com">
+          <ul class="lista-seguro-com clearfix" id="listContent"></ul>
+      </div>
+      </div>
+
+    </form>
+    
+
+  </section>
+  
+  {% endblock%}
+  

@@ -209,3 +209,398 @@
 .my_input:focus {
     background-color: #e9ecef;
 }
+
+
+/** NUEVO **/
+.mg-t{
+    margin-top: 4rem;
+}
+.alt_sur{
+    font-weight: bold;
+}
+.mg_l{
+    margin-left: 17rem;
+}
+.relo_hw{
+    margin-top: -6rem;
+    margin-left: 0rem;
+    width: 3rem;
+}
+.list_mj{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.text_reloj{
+    margin-left: 3rem;
+}
+.title_style_tit{
+    color: #0F4BBD;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-Weight: 700;
+}
+.title_style_bar{
+    color: #0F4BBD;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-Weight: 700;
+}
+
+.btn_radius11 {
+    border-radius: 6px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5!important;
+}
+.btn_radius12 {
+    border-radius: 6px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+}
+.btn_radius13 {
+    border-radius: 6px;
+    margin-top: -1rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+}
+fieldset.fieldset_parrafo{
+
+    border-color: #36d2b6!important;
+    border-radius: 8rem!important;
+    /* border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000; */
+}
+.span_parrafo{
+    font-weight: bold;
+}
+.span_parrafo1{
+    font-weight: bold;
+    color: #4562c7;
+}
+.forma_pago{
+    text-align: justify;
+}
+.center_text{
+    margin-left: 18rem;
+}
+.img_BBVA{
+    /* width: 50%;
+    height: 50%; */
+}
+.img_OXX{
+
+}
+.img_Willys{
+
+}
+.img_Yastas{
+
+}
+.img_Telecom{
+
+}
+.img_Sams{
+
+}
+.img_Farmacia_del_Ahorro{
+
+}
+.img_Walmart{
+
+}
+.img_Circle_K{
+
+}
+.BBVA_cot{
+    margin-top: 1rem;
+}
+.OXX_cot{
+    margin-top: 1rem;
+}
+.Willys_cot{
+    margin-top: 1rem;
+}
+.Yastas_cot{
+    margin-top: 1rem;
+}
+.Telecom_cot{
+    margin-top: 1rem;
+}
+.Sams_cot{
+    margin-top: 1rem;
+}
+.Farmacia_del_Ahorro_cot{
+    margin-top: 1rem;
+}
+.Walmart_cot{
+    margin-top: 1rem;
+}
+.Circle_K_cot{
+    margin-top: 1rem;
+}
+.navbar1{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    /* padding: 1.2rem 1rem; */
+    margin-right: -1rem;
+    margin-left: -1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+
+}
+.text_body__participante{
+    margin-bottom: 1rem!important;
+}
+.text_move{
+    float: right;
+    margin-right: 122px!important;
+    margin-top: -1rem;
+}
+.hr_move{
+    margin-top: 2rem!important;
+    background-color: #4b6fa2;
+}
+.text_move__vac{
+    margin-left: 9.7rem;
+}
+.slider{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    /* height: 100vh; */
+    background-position: top center;/*centrar imagen*/
+    background-size: cover;/*ajustable*/
+  }
+
+  .slider .ul-imagen {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    margin-top: 2rem;
+  }
+
+.img {
+    width: 25%;
+    display: block;
+}
+.text-j{
+    text-align: justify;
+}
+
+li::marker{
+    color: #36d2b6; 
+    font-size: 20px;
+}
+.signos{
+    color: #0f4cbdab;
+}
+.fa-plus{
+    color: #18408b;
+    font-size: 1.2rem;
+}
+.fa-plus2{
+    color: #81cff5;
+    font-size: 1.2rem;
+}
+.line_credi{
+    background-color: #4b6fa2;
+}
+
+.barra{
+	overflow: hidden;
+}
+.barra{
+	margin-top: 40px;
+	background-color: #f5f5f5;
+    margin-left: 16rem;
+    float: left;
+    border-radius: 1rem;
+}
+.par_text{
+	/* margin-top: 40px; */
+	/* background-color: #f5f5f5; */
+    margin-left: 16rem;
+    float: left;
+    border-radius: 1rem;
+    border-bottom-style: ridge;
+    border-left: groove;
+    border-right: ridge;
+    margin-right: 14rem;
+}
+
+.navegacion-principal a{
+	color: #605f65;
+	text-decoration: none;
+	font-size: 15px;
+	display: block;
+	text-align: center;
+	padding: 20px;
+    /* margin-bottom: -1rem!important; */
+}
+.text-principal {
+	color: #605f65;
+	text-decoration: none;
+	font-size: 15px;
+	display: block;
+	text-align: center;
+	/* padding: 20px; */
+	padding: 41px;
+    /* margin-bottom: -1rem!important; */
+}
+@media (min-width: 768px) {
+    .navegacion-principal a{
+        display: inline-block;
+    }
+}
+.navegacion-principal a:hover{/* para que los enlaces al momento de pasar el cursos cambien de color*/
+    background-color: #2cd9c2;
+    color: #fff;
+}
+.nav_enlace:hover{
+    background-color: #2cd9c2;
+    color: #fff;
+}
+.nav_enlace__1:hover{
+    background-color: #2cd9c2;
+    color: #fff;
+}
+.nav_enlace:hover{
+    background-color: #2cd9c2;
+    color: #fff;
+}
+.contenedor{
+	/* max-width: 1200px */
+    /* width: 41rem; */
+	margin: 0 auto;
+	/**overflow: auto;**/
+}
+.nav_enlace{
+    float: left;
+    padding-top: 2rem!important;
+
+    border: none;
+    padding-bottom: 2rem;
+    color: #605f65;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 2.9rem;
+    cursor: pointer;
+}
+.nav_enlace__1{
+    float: left;
+    /* padding-top: 2rem!important; */
+
+    border: none;
+    padding-bottom: 2rem;
+    color: #605f65;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.nav_enlace1{
+    float: left;
+    padding-top: 0.7rem!important;
+}
+.num::marker{
+    color: #000000;
+    font-size: 0.9rem;
+}
+.text_nav{
+    text-align: justify;
+}
+.mt_le{
+    margin-left: 7rem;
+}
+.button-clicked {
+    background: #f5f5f5;
+}
+.button-clicked1 {
+    background: #2cd9c2;
+    color: #fff;
+}
+
+/**RESPONSIVO**/
+@media (max-width: 480px){
+    .mg_l{
+        margin-left: 1.5rem;
+    }
+}
+@media (max-width: 480px){
+    .barra{
+        margin-left: 0.7rem;
+        margin-right: -1.2rem;
+    }
+}
+@media (max-width: 480px){
+    .nav_enlace{
+        float: left;
+        width: 104%;
+        margin-left: -1rem;
+    }
+}
+@media (max-width: 480px){
+    .nav_enlace__1{
+        width: 104%; 
+    }
+}
+@media (max-width: 480px){
+    .text_nav__enlace{
+        /* width: 104%; */
+        width: 90%;
+    }
+}
+@media (max-width: 480px){
+    .par_text{
+        margin-left: 0.7rem;
+        margin-right: -1rem;
+    }
+}
+@media (max-width: 480px){
+    .center_text{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+@media (max-width: 480px){
+    .img_BBVA{
+        margin-left: 2rem;
+    }
+}
+@media (max-width: 480px){
+    .img_Telecom{
+        margin-left: 2rem;
+    }
+}
+@media (max-width: 480px){
+    .mq-alterna{
+        text-align: center;
+    }
+}
+@media (max-width: 480px){
+    .text-principal{
+        padding: 20px;
+    }
+}

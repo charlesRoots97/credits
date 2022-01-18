@@ -1,0 +1,171 @@
+{% extends 'header_index.html' %}
+
+{% block body %}
+
+  <section class="seccion contenedor precios bg_animate-home">
+      <h2 class="separador">Beneficios</h2>
+      <div class="contenido-objetivos">
+          <div class="imagen-objetivo img-obj">
+            <!-- <img src="img/Beneficios.gif" alt="Imagen Sobre Nosotros" class="img-obje"> -->
+            <img src = "{{url_for ('static', filename = 'img/Beneficios.gif')}}" class="img-obje">
+
+
+          </div>
+        <div class="text-obj text-resp">
+          <p class="text1">
+              Adquirir un seguro de vida para beneficio de sus seres queridos de una manera fácil y rápida, con trámites sencillos,
+              precios accesibles, por medio de web y app, así como a través de la infraestructura de ventas de la empresa y sus
+              socios comerciales.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-pers">
+          <h3 class="text-pers_fisi">Dirigido a Personas Físicas..</h3>
+        </div>
+          <div class="contenido-objetivos">
+              <div class="text-ho">
+                <p class="text1">
+                    Adquirir un seguro de vida para beneficio de sus seres queridos de una manera fácil y rápida, con trámites sencillos,
+                    precios accesibles, por medio de web y app, así como a través de la infraestructura de ventas de la empresa y sus
+                    socios comerciales.
+                </p>
+              </div>
+              <div class="imagen-objetivo">
+                  <!-- <img src="img/PersonasFisicas.gif" alt="Imagen Sobre Nosotros" class="img-obje"> -->
+                  <img src = "{{url_for ('static', filename = 'img/PersonasFisicas.gif')}}" class="img-obje">
+              </div>
+          </div>
+      </div>
+
+      <div class="burbujas">
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div><!--aquí termina el original-->
+
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div><!--aquí termina la segunda parte-->
+
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div><!--aquí termina la tercera parte-->
+      </div>
+
+  </section>
+  <section class="seccion contenedor precios bg_animate-home">
+  <h2 class="separador">Productos</h2>
+      <h3>
+          Seguros de vida de diferentes sumas aseguradas,  a través de diferentes aseguradoras 
+          <!-- (SURA, AGOASEMEX) -->
+      </h3>
+      <div class="contenedor contenedor_seguro__dos">
+        <ul class="lista-precios clearfix">
+          <li>
+            <div class="tabla-precio">
+              <h3>SEGURO 1</h3>
+              <!-- <p class="numero">$30</p> -->
+              <div class="logo-insignia">
+                <!-- <img src="img/insignialife.png" alt="logo Insignia"> -->
+                <img src = "{{url_for ('static', filename = 'img/SURA.png')}}" alt="logo Insignia">
+                <input type="hidden" value="1" id="insignia-log" name="insignia-log">
+              </div>
+              <ul>
+                <li>Bocadillos Gratis</li>
+                <li>Todas las conferencias</li>
+                <li>Todos los talleres</li>
+                <!-- <a href="calendario.php" class="hollow button">Cotizar</a> -->
+                <a href="{{url_for('verificacion_edad')}}" class=" button">Go</a>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <div class="tabla-precio">
+              <h3>SEGURO 2</h3>
+              <div class="logo-insignia">
+                <!-- <img src="img/pan-american-mexico.png" alt="logo Panamerican"> -->
+                <img src = "{{url_for ('static', filename = 'img/agroasemex.png')}}" alt="logo Panamerican">
+                <input type="hidden" value="2" id="panamerican-log" name="panamerican-log">
+              </div>
+              <ul>
+                <li>Bocadillos Gratis</li>
+                <li>Todas las conferencias</li>
+                <li>Todos los talleres</li>
+                <a href="{{url_for('verificacion_edad')}}" class=" button">Go</a>
+              </ul>
+            </div>
+          </li>
+
+          <!-- <li>
+            <div class="tabla-precio">
+              <h3>SEGURO 3</h3>
+              <div class="logo-zuri">
+                <img src = "{{url_for ('static', filename = 'img/zuri.png')}}" alt="logo Zuri">
+                <input type="hidden" value="3" id="zuri-log" name="zuri-log">
+              </div>
+              <ul>
+                <li>Bocadillos Gratis</li>
+                <li>Todas las conferencias</li>
+                <li>Todos los talleres</li>
+                <a href="{{url_for('seguro')}}" class="button hollow">Ir</a>
+              </ul>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+      <div class="burbujas">
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+      </div>
+  </section>
+
+  <!-- <button type="button" onclick="myFN()">XXXXX</button> -->
+  {% endblock%}
+
+

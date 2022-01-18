@@ -1,0 +1,307 @@
+{% extends 'header.html' %}
+
+{% block body %}
+    <section class="seccion contenedor">
+        <form id="registro_insignia" class="registro">
+
+            <div id="registroNuevoBene" class="registro clearfix">
+                <div class="titulo">
+                    <fieldset>
+                        <h3 class="titulo_registro_bn">Registro de Beneficiario</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text">
+                        <fieldset>
+
+                            <div class="">
+                                <button type="button" id="add-dina_benefe" class="boton-add_nuevo" onclick="verFormDina2()">Agregar Campos</button>
+                            </div>
+                            <fieldset class="field-nombre_bn">
+                            <legend><i class="fas fa-user"></i>Nombre</legend>
+                                <label for="text"></label>
+                                <input type="text" id="nombre_beneficiario" name="nombre_beneficiario" class="input-nombre" placeholder="Escribe tu Nombre" required onkeyup="pm.inputKeyUpDirect(this);">
+                            </fieldset>
+                            <fieldset class="field-apellidoP_bn">
+                            <legend><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_p_beneficiario" name="apellido_p_beneficiario" class="input-apellidoP" placeholder="Escribe tu Apellido Paterno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                        <fieldset class="field-apellidoM_bn">
+                            <legend><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_m_beneficiario" name="apellido_m_beneficiario" class="input-apellidoM" placeholder="Escribe tu Apellido Materno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                            <fieldset class="field-porcentaje">
+                                <legend><i class="fas fa-percentage"></i>Porcentaje</legend>
+                                <label for="text"></label>
+                                <progress id="porcentaje_beneficiario" name="porcentaje_beneficiario" value="0" max="100" class="progress-button" indeterminate required></progress>
+                                <div id="labl">Valor: 0</div>
+                                <!-- <div class="btn-minu"> -->
+                                    <input type="button" id="minu" value="-" class="btn-reducir">
+                                <!-- </div> -->
+                                <!-- <div class="btn-plus"> -->
+                                    <input type="button" id="plus" value="+" class="btn-aumentar">
+                                <!-- </div> -->
+                            </fieldset>
+                            <fieldset class="field-parentesco">
+                                <legend><i class="fas fa-user-friends"></i>Parentesco</legend>
+                                <select id="parentesco_beneficiario" name="parentesco_beneficiario" class="input-sexo">
+                                    <option value="0" disabled selected>-- Seleccione --</option>
+                                        {% for parentescos in parentesco %}
+                                            <tr>
+                                                <option value="{{ parentescos.0 }}">{{ parentescos.1 }}</option>
+                                                <td></td>
+                                            </tr>
+                                        {% endfor %}
+                                </select>
+                            </fieldset>
+                            <fieldset class="field-comp_titular">
+                                <legend><i class="fas fa-user"></i>CURP Titular</legend>
+                                <label for="text"></label>
+                                {% for datoTitulares in datoTitular %}
+                                <input type="text" id="curp_beneficiario_Comprobar" name="curp_beneficiario_Comprobar" class="input-nombre curp" maxlength="18" placeholder="Escribe tu CURP" value="{{ datoTitulares.4 }}" disabled>
+                                {% endfor %}
+                            </fieldset>
+                            <div class="inf_curp" id="info_curp">Debes ingresar la CURP correcta del titular para poder continuar,<br>de lo contario no podrás <span class="span_info__curp">proseguir</span></div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="registroNuevoBene_dina2" class="registro clearfix">
+                <div class="titulo">
+                    <fieldset>
+                        <h3 class="titulo_registro_bn">Registrar un nuevo beneficiario</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text">
+                        <fieldset>
+                            <div class="">
+
+                                <button type="button" id="add-dina_benefe2" class="boton-dina_nuevo" onclick="verFormDina3()">Agregar Campos</button>
+                                <button type="button" id="dele-form_dina2" class="delete_email_dina" onclick="cerrar_fomr_dina2()">Eliminar</button>
+                            </div>
+                            <fieldset class="field-nombre_bn">
+                            <legend><i class="fas fa-user"></i>Nombre</legend>
+                                <label for="text"></label>
+                                <input type="text" id="nombre_beneficiario_dina" name="nombre_beneficiario_dina" class="input-nombre limpiar-input" placeholder="Escribe tu Nombre" onkeyup="pm.inputKeyUpDirect(this);">
+                            </fieldset>
+                            <fieldset class="field-apellidoP_bn">
+                            <legend><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_p_beneficiario_dina" name="apellido_p_beneficiario_dina" class="input-apellidoP limpiar-input" placeholder="Escribe tu Apellido Paterno" onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                        <fieldset class="field-apellidoM_bn">
+                            <legend><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_m_beneficiario_dina" name="apellido_m_beneficiario_dina" class="input-apellidoM limpiar-input" placeholder="Escribe tu Apellido Materno" onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                            <fieldset class="field-porcentaje">
+                                <legend><i class="fas fa-percentage"></i>Porcentaje</legend>
+                                <label for="text"></label>
+                                <progress id="porcentaje_beneficiario_dina" name="porcentaje_beneficiario_dina" value="0" max="100" class="progress-button limpiar-input" indeterminate ></progress>
+                                <div id="labl_dina">Valor: 0</div>
+                                <input type="button" id="minu2" value="-" class="btn-reducir">
+                                <input type="button" id="plus2" value="+" class="btn-aumentar">
+                            </fieldset>
+                            <fieldset class="field-parentesco">
+                                <legend><i class="fas fa-user-friends"></i>Parentesco</legend>
+                                <select id="parentesco_beneficiario_dina" name="parentesco_beneficiario_dina" class="input-sexo">
+                                    <option value="0" disabled selected>-- Seleccione --</option>
+                                        {% for parentescos in parentesco %}
+                                            <tr>
+                                                <option value="{{ parentescos.0 }}">{{ parentescos.1 }}</option>
+                                                <td></td>
+                                            </tr>
+                                        {% endfor %}
+                                </select>
+                            </fieldset>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="registroNuevoBene_dina3" class="registro clearfix">
+                <div class="titulo">
+                    <fieldset>
+                        <h3 class="titulo_registro_bn">Registrar un nuevo beneficiario</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text">
+                        <fieldset>
+                            <div>
+                                <button type="button" id="add-dina_benefe3" class="boton-dina_nuevo" onclick="verFormDina4()">Agregar Campos</button>
+                                <button type="button" id="dele-form_dina3" class="delete_email_dina" onclick="cerrar_fomr_dina3()">Eliminar</button>
+                            </div>
+                            <fieldset class="field-nombre_bn">
+                            <legend><i class="fas fa-user"></i>Nombre</legend>
+                                <label for="text"></label>
+                                <input type="text" id="nombre_beneficiario_dina3" name="nombre_beneficiario_dina3" class="input-nombre limpiar-input" placeholder="Escribe tu Nombre" required onkeyup="pm.inputKeyUpDirect(this);">
+                            </fieldset>
+                            <fieldset class="field-apellidoP_bn">
+                            <legend><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_p_beneficiario_dina3" name="apellido_p_beneficiario_dina3" class="input-apellidoP limpiar-input" placeholder="Escribe tu Apellido Paterno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                        <fieldset class="field-apellidoM_bn">
+                            <legend><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_m_beneficiario_dina3" name="apellido_m_beneficiario_dina3" class="input-apellidoM limpiar-input" placeholder="Escribe tu Apellido Materno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                            <fieldset class="field-porcentaje">
+                                <legend><i class="fas fa-percentage"></i>Porcentaje</legend>
+                                <label for="text"></label>
+                                <progress id="porcentaje_beneficiario_dina3" name="porcentaje_beneficiario_dina3" value="0" max="100" class="progress-button limpiar-input" indeterminate required></progress>
+                                <div id="labl3">Valor: 0</div>
+                                <input type="button" id="minu3" value="-" class="btn-reducir">
+                                <input type="button" id="plus3" value="+" class="btn-aumentar">
+                            </fieldset>
+                            <fieldset class="field-parentesco">
+                                <legend><i class="fas fa-user-friends"></i>Parentesco</legend>
+                                <select id="parentesco_beneficiario_dina3" name="parentesco_beneficiario_dina3" class="input-sexo">
+                                    <option value="0" disabled selected>-- Seleccione --</option>
+                                        {% for parentescos in parentesco %}
+                                            <tr>
+                                                <option value="{{ parentescos.0 }}">{{ parentescos.1 }}</option>
+                                                <td></td>
+                                            </tr>
+                                        {% endfor %}
+                                </select>
+                            </fieldset>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+            <div id="registroNuevoBene_dina4" class="registro clearfix">
+                <div class="titulo">
+                    <fieldset>
+                        <h3 class="titulo_registro_bn">Registrar un nuevo beneficiario</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text">
+                        <fieldset>
+                            <div class="">
+                                <button type="button" id="dele-form_dina4" class="delete_email_dina" onclick="cerrar_fomr_dina4()">Eliminar</button>
+                            </div>
+                            <fieldset class="field-nombre_bn">
+                            <legend><i class="fas fa-user"></i>Nombre</legend>
+                                <label for="text"></label>
+                                <input type="text" id="nombre_beneficiario_dina4" name="nombre_beneficiario_dina4" class="input-nombre limpiar-input" placeholder="Escribe tu Nombre" required onkeyup="pm.inputKeyUpDirect(this);">
+                            </fieldset>
+                            <fieldset class="field-apellidoP_bn">
+                            <legend><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_p_beneficiario_dina4" name="apellido_p_beneficiario_dina4" class="input-apellidoP limpiar-input" placeholder="Escribe tu Apellido Paterno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                        <fieldset class="field-apellidoM_bn">
+                            <legend><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_m_beneficiario_dina4" name="apellido_m_beneficiario_dina4" class="input-apellidoM limpiar-input" placeholder="Escribe tu Apellido Materno" required onkeyup="pm.inputKeyUpDirect(this);">
+                        </fieldset>
+                            <fieldset class="field-porcentaje">
+                                <legend><i class="fas fa-percentage"></i>Porcentaje</legend>
+                                <label for="text"></label>
+                                <progress id="porcentaje_beneficiario_dina4" name="porcentaje_beneficiario_dina4" value="0" max="100" class="progress-button limpiar-input" indeterminate required></progress>
+                                <div id="labl4">Valor: 0</div>
+                                <input type="button" id="minu4" value="-" class="btn-reducir">
+                                <input type="button" id="plus4" value="+" class="btn-aumentar">
+                            </fieldset>
+                            <fieldset class="field-parentesco">
+                                <legend><i class="fas fa-user-friends"></i>Parentesco</legend>
+                                <select id="parentesco_beneficiario_dina4" name="parentesco_beneficiario_dina4" class="input-sexo">
+                                    <option value="0" disabled selected>-- Seleccione --</option>
+                                        {% for parentescos in parentesco %}
+                                            <tr>
+                                                <option value="{{ parentescos.0 }}">{{ parentescos.1 }}</option>
+                                                <td></td>
+                                            </tr>
+                                        {% endfor %}
+                                </select>
+                            </fieldset>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            {% for datoTitulares in datoTitular %}
+                <input type="hidden" id="titular_name" value="{{ datoTitulares.1 }} {{ datoTitulares.2 }} {{ datoTitulares.3 }}">
+                <input type="hidden" id="titular_email" value="{{ datoTitulares.6 }}">
+                <input type="hidden" id="titular_phone" value="{{ datoTitulares.5 }}">
+                <input type="hidden" id="titular_CURP" value="{{ datoTitulares.4 }}">
+                <input type="hidden" id="secure_price" value="{{ datoTitulares.7 }}">
+                <input type="hidden" id="product_name" value="{{ datoTitulares.8 }}">
+                <input type="hidden" id="id_name_usuario" name="id_name_usuario" value="{{ datoTitulares.0 }}">
+            {% endfor %}
+
+            <div>
+                <!-- <input type="button" value="Comprobar Titular" class="boton-pagar_titular" id="boton-continuar_Resumen" onclick="add_beneficiario(); extraerBeneficiario_dos()"> -->
+                <input type="button" value="Continuar" class="boton-pagar_titular" id="boton-continuar_Resumen" onclick="someFunc()">
+
+            </div>
+
+            </div>
+
+            <div id="verificacion_titular" class="registro clearfix">
+                <div class="titulo_compro__titular" id="dts_titular">
+                    <fieldset>
+                        <h3 class="">Datos del titular</h3>
+                    </fieldset>
+                </div>
+                <div class="caja">
+                    <div class="evento registro_text cultar_cotizador">
+                        <fieldset>
+                            <div class='logo_insignia' id="imagen_seguro"></div>
+                            <fieldset class="field-precio_titular">
+                                <legend><i class="fa fa-dollar-sign"></i>Precio</legend>
+                                <label for="text"></label>
+                                <input type="text" id="precio_seguro" name="precio_seguro" class="input-nombre curp" placeholder="Precio" disabled>
+                            </fieldset>
+                            <div class="imagen-objetivo">
+                                <img src="{{url_for ('static', filename = 'img/datosUsuario2.gif')}}" alt="Imagen Sobre Nosotros" class="img-datosUsuario">
+                            </div>
+                            <fieldset class="field-nombre_titular">
+                                <legend><i class="fas fa-user"></i>Nombre Titular</legend>
+                                <label for="text"></label>
+                                <input type="text" id="nombre_titular" name="nombre_titular" class="input-nombre" placeholder="Escribe tu Nombre" disabled>
+                            </fieldset>
+                            <fieldset class="field-apellidoP_titular">
+                                <legend><i class="fas fa-male"></i>Apellido paterno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_paterno_titular" name="apellido_paterno_titular" class="input-apellidoP" placeholder="Escribe tu Apellido Paterno" disabled>
+                            </fieldset>
+                            <fieldset class="field-apellidoM_titular">
+                                <legend><i class="fas fa-female"></i>Apellido materno</legend>
+                                <label for="text"></label>
+                                <input type="text" id="apellido_materno_titular" name="apellido_materno_titular" class="input-apellidoM" placeholder="Escribe tu Apellido Materno" disabled>
+                            </fieldset>
+                            <fieldset class="field-curp_titular">
+                                <legend><i class="fas fa-id-card"></i>CURP</legend>
+                                <label for="text"></label>
+                                <input type="text" id="curp_titular" name="curp_titular" class="input-nombre curp" placeholder="Escribe tu CURP" disabled>
+                            </fieldset>
+                                <input type="hidden" id="titular_veri" name="titular_veri" class="input-apellidoM" >
+                        </fieldset>
+                    </div>
+                </div>
+                <input type="button" value="Continuar" class="boton-pagar_beneficiario" id="boton-continuar_pago" onclick="add_beneficiario()">
+                <input type="button" value="Pagar" class="boton-continuarTitular" id="boton-continuar_DT" onclick="extraerBeneficiario()">
+
+                <div class="terminos_input__condicion" id="terminos_input__condicion">
+                    <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" class="terminos">
+                    <p class="tex_terminos">
+                        Aceptar los <a class="color_ref" href="/terminos" target="_blank">Términos y Condiciones</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+
+
+
+    </section>
+    {% endblock%}

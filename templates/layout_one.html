@@ -30,14 +30,14 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a href="/producto/1" class="dropdown-item">Créditos</a>
-                    <a class="dropdown-item" href="#">Seguros</a>
+                    <a class="dropdown-item" href="/indexSeguro">Seguros</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="/services" class="nav-link items_navigation">Sucursales</a>
+                <a href="/#" class="nav-link items_navigation">Sucursales</a>
             </li>
             <li class="nav-item">
-                <a href="/services" class="nav-link items_navigation">Información Digital</a>
+                <a href="/#" class="nav-link items_navigation">Información Digital</a>
             </li>
         </ul>
         </div>
@@ -45,12 +45,15 @@
     <div class="container px-0">
         {% block body %}
         {% endblock %}
+        <script src="{{ url_for('static', filename='js/conocer_producto.js')}}"></script>
+
         <div class="btn_whatsapp">
             <a href="https://api.whatsapp.com/send?phone=5219614630019&text=%23alternativa19" target="_blank">
             <img src="{{ url_for('static',filename='images/Astro-01.png') }}" alt="" class="style_img_float" />
             </a>
         </div>
     </div>
+    <!-- <script src="{{ url_for('static', filename='js/conocer_producto.js')}}"></script> -->
     <div class="container row col-md-12 mt-4 px-5 pt-5 footer_style">
         <div class="col-md-4">
             <div class="col-md-12">

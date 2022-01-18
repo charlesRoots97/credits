@@ -1,0 +1,36 @@
+{% extends 'header_global.html' %}
+
+{% block body %}
+
+
+<section class="seccion seccion__footer contenedor precios" id="barra_nav">
+    <h2 class="separador">Necesito conocerte mejor<br>¿Cuál es tu fecha de nacimiento?</h2>
+    <!-- <section class="precios seccion"> -->
+    <fieldset>
+        <fieldset class="verificacion-fecha">
+            <legend><i class="fas fa-calendar-week"></i>Fecha de Nacimiento</legend> 
+            <input type="text" class="input-fecha__verificacion" id="fecha_nacimiento__verificacion" value="1980-07-07" name="fecha_nacimiento" placeholder="YYYY-MM-DD">
+        </fieldset>
+        <div class="animacion_edad__joven" id="animacion_edad_joven">
+            <p class="text_verificacion_edad">
+                Hola. Por tu edad se ve que eres una persona joven <br>y con mucho potencial. Adelante, puedes continuar.        
+            </p>
+            <div class="gif-edad">
+                <img src="{{url_for ('static', filename = 'img/img-joven1.gif')}}" alt="Imagen Sobre Nosotros" class="img-veri_edad_joven">
+            </div>
+        </div>
+        <div lass="animacion_edad__mayor" id="animacion_edad_mayor">
+            <p class="text_verificacion_edad">
+                Hola. Por tu edad se puede identificar <br>una persona con suma experiencia. Adelante, puedes continuar.
+            </p>
+            <div class="gif-edad">
+                <img src="{{url_for ('static', filename = 'img/img-mayor.gif')}}" alt="Imagen Sobre Nosotros" class="img-veri_edad_mayor">
+            </div>
+        </div>
+        <input type="button" value="Continuar" class="btn-verificar_edad" id="boton-verif_edad" onclick="verif_edad()"> 
+        <input type="button" value="Continuar" class="btn-verificar_edad" id="boton-verificar__edad" onclick="mov_seguro()"> 
+    </fieldset>
+  </section>
+  
+  {% endblock%}
+  

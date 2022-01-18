@@ -1,0 +1,50 @@
+{% extends 'header_banco.html' %}
+
+{% block body %}
+
+
+<section class="seccion contenedor precios bg_animate">
+    <h2 class="titulo_banco">¡Felicitaciones, su pago ha sido procesado!</h2>
+    <!-- <section class="precios seccion"> -->
+    <div class="contenido-objetivos">
+        <div class="imagen-pago_banco">
+					<img src="{{url_for ('static', filename = 'img/pagado3.gif')}}" alt="Imagen Sobre Nosotros" class="img-obje">
+				</div>
+      <div class="text-obj"> 
+        <h3 class="sub_titulo">
+          ¡Esto es realmente emocionante! ahora cuentas con un excelente seguro de vida. 
+        </h3>
+        <p>
+            En breve usted recibiráen e-mail con la información del seguro adquirido o puede descargar el PDF en el siguiente Botón.
+        </p>
+         <button class="btn_pdf">Descargar PDF</button>
+         <a href="/indexSeguro">
+            <button class="btn_salir">Salir</button>
+        </a>
+      </div>
+     
+
+    </div>
+    <form id="registro_insignia" class="registro" action="registro.php" method="post">
+        <div id="paquetes" class="paquetes">
+            <!-- <h2>Objetivos Generale s</h2> -->
+            <ul class="lista-seguro-com clearfix" id="listContent"></ul>
+        </div>
+
+    </form>
+    <!-- <div class="burbujas">
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+        </div> -->
+</section>
+
+{% endblock%}
+  

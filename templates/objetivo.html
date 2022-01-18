@@ -1,0 +1,52 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+
+<section class="seccion contenedor precios bg_animate">
+    <h2 class="separador">Objetivos Generales</h2>
+    <!-- <section class="precios seccion"> -->
+    <div class="contenido-objetivos">
+        <div class="imagen-objetivo">
+					<img src="{{url_for ('static', filename = 'img/Objetivos.gif')}}" alt="Imagen Sobre Nosotros" class="img-obje">
+				</div>
+      <div class="text-obj"> 
+        <p>
+          Comercializar y vender  seguros de vida para la población en general, 
+          que permita la elección del producto y la aseguradora, ofertándolo a través de instrumentos de tecnología de la información y 
+          la infraestructura de ventas de la empresa y sus socios comerciales, lo  cual favorezca  la cultura de  
+          aseguramiento y previsión, entre nuestros clientes 
+        </p>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <ul class="lista-precios clearfix">
+
+
+      </ul>
+    </div>
+
+    <form id="registro_insignia" class="registro" action="registro.php" method="post">
+        <div id="paquetes" class="paquetes">
+            <!-- <h2>Objetivos Generale s</h2> -->
+            <ul class="lista-seguro-com clearfix" id="listContent"></ul>
+        </div>
+
+    </form>
+    <div class="burbujas">
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+        </div>
+</section>
+
+{% endblock%}
+
